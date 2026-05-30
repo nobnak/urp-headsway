@@ -1,0 +1,16 @@
+{
+    "name": "Jp.Nobnak.HeadSway.Package.Editor",
+    "rootNamespace": "Jp.Nobnak.HeadSway.Editor",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
