@@ -1,0 +1,24 @@
+{
+  "name": "jp.nobnak.headsway",
+  "displayName": "Head Sway by Lens Shift",
+  "version": "1.0.0",
+  "unity": "6000.0",
+  "description": "Head sway via converging lens shift on a fixed camera rig (ViewMotion + ConvergingLensShift).",
+  "author": {
+    "name": "Nakata Nobuyuki",
+    "email": "nobu.nakata@gmail.com"
+  },
+  "dependencies": {
+    "com.unity.mathematics": "1.2.0"
+  },
+  "samples": [
+    {
+      "displayName": "HeadSway",
+      "description": "URP demo scene with HeadSwayLensShiftCamera.",
+      "path": "Samples~/HeadSway"
+    }
+  ],
+  "publishConfig": {
+    "registry": "https://package.openupm.com"
+  }
+}
