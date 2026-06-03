@@ -54,7 +54,7 @@ namespace App.ViewMotion
             [Min(0f)] public float fixedOffsetLength;
 
             [Header("Rotate (deg)")]
-            [Range(0f, 360f)] public float rotateAngleDeg;
+            [Range(-180f, 180f)] public float rotateAngleDeg;
             [Range(0f, 89f)] public float rotateSnoiseDeg;
             [Min(0f)] public float rotateSnoiseRate = 0.35f;
             public float rotateSnoiseSeed;
