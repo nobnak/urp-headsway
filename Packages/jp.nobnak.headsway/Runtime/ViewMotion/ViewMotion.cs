@@ -51,7 +51,8 @@ namespace App.ViewMotion
             [Range(0f, 360f)] public float fixedOffsetDirectionDeg;
             [Min(0f)] public float fixedOffsetLength;
 
-            [Header("Rotate (deg, snoise)")]
+            [Header("Rotate (deg)")]
+            [Range(0f, 360f)] public float rotateAngleDeg;
             [Range(0f, 89f)] public float rotateSnoiseDeg;
             [Min(0f)] public float rotateSnoiseRate = 0.35f;
             public float rotateSnoiseSeed;
@@ -155,12 +156,15 @@ namespace App.ViewMotion
 
         static Vector2 RotateCombined(in Params p, float time, Vector2 view)
         {
-            if (p.rotateSnoiseDeg <= 0f)
+            var delta = p.rotateAngleDeg * Mathf.Deg2Rad;
+            if (p.rotateSnoiseDeg > 0f) {
+                var rate = Mathf.Max(1e-4f, p.rotateSnoiseRate);
+                var sn = noise.snoise(new float2(time * rate, p.rotateSnoiseSeed));
+                sn = math.clamp(sn, -1f, 1f);
+                delta += sn * (p.rotateSnoiseDeg * Mathf.Deg2Rad);
+            }
+            if (delta == 0f)
                 return view;
-            var rate = Mathf.Max(1e-4f, p.rotateSnoiseRate);
-            var sn = noise.snoise(new float2(time * rate, p.rotateSnoiseSeed));
-            sn = math.clamp(sn, -1f, 1f);
-            var delta = sn * (p.rotateSnoiseDeg * Mathf.Deg2Rad);
             var c = Mathf.Cos(delta);
             var si = Mathf.Sin(delta);
             return new Vector2(view.x * c - view.y * si, view.x * si + view.y * c);
