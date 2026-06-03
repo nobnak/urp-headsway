@@ -585,7 +585,6 @@ GameObject:
   - component: {fileID: 450753640}
   - component: {fileID: 450753639}
   - component: {fileID: 450753643}
-  - component: {fileID: 450753642}
   - component: {fileID: 450753644}
   m_Layer: 0
   m_Name: Main Camera
@@ -668,23 +667,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &450753642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450753637}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 618b0e3f6c65dd247a4a016150006c57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.FreeCamera
-  m_LookSpeedController: 120
-  m_LookSpeedMouse: 3
-  m_MoveSpeed: 3
-  m_MoveSpeedIncrement: 2.5
-  m_Turbo: 10
 --- !u!114 &450753643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -760,6 +742,7 @@ MonoBehaviour:
     bobHeartExp: 4
     fixedOffsetDirectionDeg: 0
     fixedOffsetLength: 0
+    rotateAngleDeg: 0
     rotateSnoiseDeg: 0
     rotateSnoiseRate: 0.35
     rotateSnoiseSeed: 0
