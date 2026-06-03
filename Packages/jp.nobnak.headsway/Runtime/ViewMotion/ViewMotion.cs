@@ -48,6 +48,8 @@ namespace App.ViewMotion
             [Min(1f)] public float bobHeartExp = 4f;
 
             [Header("Fixed offset (m)")]
+            [Tooltip("On: 0° = +Y (Bob 等と整合). Off: 0° = +X (従来).")]
+            public bool fixedOffsetZeroAlongY;
             [Range(0f, 360f)] public float fixedOffsetDirectionDeg;
             [Min(0f)] public float fixedOffsetLength;
 
@@ -151,7 +153,11 @@ namespace App.ViewMotion
             if (s <= 0f)
                 return Vector2.zero;
             var rad = p.fixedOffsetDirectionDeg * Mathf.Deg2Rad;
-            return new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)) * s;
+            var c = Mathf.Cos(rad);
+            var si = Mathf.Sin(rad);
+            return p.fixedOffsetZeroAlongY
+                ? new Vector2(si * s, c * s)
+                : new Vector2(c * s, si * s);
         }
 
         static Vector2 RotateCombined(in Params p, float time, Vector2 view)
